@@ -1,4 +1,3 @@
-import time
 import unittest
 
 from FuncionesGral import *
@@ -330,10 +329,10 @@ def validacion_dz2():
         Log().error(f"No se pudo actualizar el reporte DZ, validar el error: {e}")
         raise
     try:
-        wait.until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, Configuracion.frame_reporte2)))
+        wait.until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, Configuracion.frame_reporte1)))
 
         # Obtiene tabla de reporte de stock
-        tabla_reporte2 = driver.find_element(By.XPATH, Configuracion.tabla_reporte2).get_attribute('outerHTML')
+        tabla_reporte2 = driver.find_element(By.XPATH, Configuracion.tabla_reporte1).get_attribute('outerHTML')
         stocktable_df = pd.read_html(StringIO(tabla_reporte2))[0]
 
         # Hace una copia de la tabla, obteniendo solo las columnas de Codigo y Saldo

@@ -120,7 +120,7 @@ class funciones:
                 EC.visibility_of_all_elements_located((By.XPATH, Configuracion.menulateral)))
             cambiomenu = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.btn_sandwich)))
 
-            # Si esta activo el menu lateral entonces da clic al cambio de menuu
+            # Si está activo el menu lateral entonces da clic al cambio de menuu
             if len(tipo_menu) > 0:
                 cambiomenu.click()
                 # Log().info(" Se dio clic para cambiar de menu ")
@@ -208,7 +208,6 @@ class funciones:
     def validar_atributo_precio(self):
         try:
             try:
-                # AtributoPrecio = self.driver.find_elements(By.XPATH, Configuracion.precio_venta).is_displayed()
                 atributo_precio = WebDriverWait(driver, 4).until(
                     EC.presence_of_element_located((By.XPATH, Configuracion.precio_venta)))
 
@@ -235,7 +234,7 @@ class funciones:
                     time.sleep(1)
                     cerrar_atributo.click()
                     time.sleep(1)
-                    # Log().info("Se agrega el atributo precio unitario")
+                    Log().info("Se agrega el atributo precio unitario")
 
                 except Exception as e:  # pragma: no cover
                     Log().error(f"No se logro agregar el atributo precio unitario, error {e}")
@@ -251,29 +250,29 @@ class funciones:
         # Verifica si tiene el atributo Descuento
         try:
             try:
-                # AtributoPrecio = self.driver.find_elements(By.XPATH, Configuracion.precio_venta).is_displayed()
-                AtributoDescuento = WebDriverWait(driver, 4).until(
+                atributodescuento = WebDriverWait(driver, 4).until(
                     EC.presence_of_element_located((By.XPATH, Configuracion.descuento_venta)))
 
-                if AtributoDescuento.is_displayed():
+                if atributodescuento.is_displayed():
                     Log().info("El descuento está en pantalla")
 
             except Exception as e:
+                Log().error(f"No se pudo validar el atributo descuento {e}")
                 # Configura el atributo
                 try:
-                    AgregaAtributo = wait.until(
+                    agregaatributo = wait.until(
                         EC.presence_of_element_located((By.XPATH, Configuracion.btn_atributos)))
-                    AgregaAtributo.click()
+                    agregaatributo.click()
                     time.sleep(1)
 
-                    AtributoDescuentoVenta = wait.until(
+                    atributodescuentoventa = wait.until(
                         EC.presence_of_element_located((By.XPATH, Configuracion.atributo_descuento)))
-                    AtributoDescuentoVenta.click()
+                    atributodescuentoventa.click()
                     time.sleep(1)
 
-                    CerrarAtributo = wait.until(
+                    cerraratributo = wait.until(
                         EC.presence_of_element_located((By.XPATH, Configuracion.btn_aceptar2)))
-                    CerrarAtributo.click()
+                    cerraratributo.click()
                     time.sleep(1)
 
                 except Exception as e:
@@ -281,7 +280,7 @@ class funciones:
                     pass
 
         except Exception as e:
-            Log().error(f"No se encontró el atributo descuento")
+            Log().error(f"No se encontró el atributo descuento {e}")
             time.sleep(2)
             return False
 
@@ -289,7 +288,7 @@ class funciones:
 
     def ingresoreportes_dz(self):
 
-        # Ingreso a reporte stock valorizado por deposito
+        # Ingreso a reporte stock valorizado por depósito
         try:
             reportes_dz = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.menu_report_dz)))
             action \
@@ -722,7 +721,7 @@ class funciones:
     # -------------------------------REPORTE DOCARTI DEVOLUCIÓN DE CONTADO---------------------------------------------
 
     def tabla_docarti_dco(self):
-        # Ingreso a Herramientas -> Explorador de reportes
+        # Ingreso a Herramientas > Explorador de reportes
         try:
             herramientas_fg_docartidco = wait.until(
                 EC.presence_of_element_located((By.XPATH, Configuracion.menu_herramientas)))
@@ -799,7 +798,7 @@ class funciones:
 
     def tabla_docarti_vco(self):
 
-        # Ingreso a Herramientas -> Explorador de reportes
+        # Ingreso a Herramientas > Explorador de reportes
         try:
             herramientas_fg_docartivco = wait.until(
                 EC.presence_of_element_located((By.XPATH, Configuracion.menu_herramientas)))
@@ -939,7 +938,7 @@ class funciones:
 
     # ---------------------------------TABLA DOCUMENTOS-----------------------------------------------------
     def tabla_documentos(self):
-        # Ingreso a Herramientas -> Explorador de reportes
+        # Ingreso a Herramientas > Explorador de reportes
         try:
             herramientas_fg_documentos = wait.until(
                 EC.presence_of_element_located((By.XPATH, Configuracion.menu_herramientas)))
@@ -1057,7 +1056,7 @@ class funciones:
             raise
 
     # -----------------------------------TABLA RECARGO (TABLA DOCUMENTOS)------------------------------------------
-    # Valida que la información del documento se encuentre en la tabla recargo
+    # Válida que la información del documento se encuentre en la tabla recargo
     def col_recargo(self):
 
         # Muestra el campo de recargo
@@ -1104,7 +1103,7 @@ class funciones:
             raise
 
     # -----------------------------------TABLA DESCUENTO (TABLA DOCARTI)---------------------------------------
-    # Valida que la información del documento se encuentre en la tabla recargo
+    # Válida que la información del documento se encuentre en la tabla recargo
     def col_descuento(self):
 
         # Muestra el campo de recargo
@@ -1151,7 +1150,7 @@ class funciones:
             raise
 
     # ---------------------------------TABLA CANTIDAD COMBO (TABLA DOCARTI)-----------------------------------
-    # Valida que la información del documento se encuentre en la tabla recargo
+    # Válida que la información del documento se encuentre en la tabla recargo
     def col_combo(self):
 
         # Muestra el campo de recargo
