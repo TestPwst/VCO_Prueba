@@ -1,7 +1,6 @@
 import time
 import os
 import pandas as pd
-
 from selenium import webdriver
 from selenium.common import NoSuchElementException, TimeoutException
 from selenium.webdriver import ActionChains, Keys
@@ -228,7 +227,8 @@ class funciones:
                     atributo_precio_unitario_1.click()
                     time.sleep(1)
 
-                    cerrar_atributo_1 = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.btn_aceptar2)))
+                    cerrar_atributo_1 = wait.until(EC.presence_of_element_located((
+                        By.XPATH, Configuracion.btn_aceptar2)))
                     time.sleep(1)
                     cerrar_atributo_1.click()
                     time.sleep(1)
@@ -352,9 +352,10 @@ class funciones:
     def reingreso_reporte_dz2(self):
 
         try:
-            refresh_reporte = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.btn_actulizareporte)))
+            refresh_reporte_1 = wait.until(EC.presence_of_element_located((
+                By.XPATH, Configuracion.btn_actulizareporte)))
             time.sleep(1)
-            refresh_reporte.click()
+            refresh_reporte_1.click()
             time.sleep(5)
 
             cierra_todo1 = wait.until(
@@ -368,51 +369,51 @@ class funciones:
 
     def ingreso_almacen_central(self):
         try:
-            reportes_dz = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.menu_report_dz)))
+            reportes_dz_1 = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.menu_report_dz)))
             action \
-                .move_to_element(reportes_dz) \
+                .move_to_element(reportes_dz_1) \
                 .pause(1) \
                 .release()
             action.perform()
             time.sleep(1)
 
-            stock = wait.until(
+            stock_1 = wait.until(
                 EC.presence_of_element_located((By.XPATH, Configuracion.menu_stock)))  # Configuracion.Menu_Stock
             action \
-                .move_to_element(stock) \
+                .move_to_element(stock_1) \
                 .pause(0) \
                 .release()
             action.perform()
 
-            saldos = wait.until(
+            saldos_1 = wait.until(
                 EC.presence_of_element_located((By.XPATH, Configuracion.menu_saldos)))  # Configuracion.Menu_Saldos
             action \
-                .move_to_element(saldos) \
+                .move_to_element(saldos_1) \
                 .pause(0) \
                 .release()
             action.perform()
 
-            stock_valorizado = wait.until(
+            stock_valorizado_1 = wait.until(
                 EC.presence_of_element_located((By.XPATH, Configuracion.menu_svd)))  # Configuracion.Menu_SVD
             action \
-                .click(stock_valorizado) \
+                .click(stock_valorizado_1) \
                 .release()
             action.perform()
             Log().info(" Abre la pantalla del reporte Stock Valorizado por Deposito ")
             time.sleep(2)
 
-            calmacen = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.campo_almacen)))
-            calmacen.send_keys(Configuracion.almacen_central)
+            calmacen_1 = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.campo_almacen)))
+            calmacen_1.send_keys(Configuracion.almacen_central)
             time.sleep(2)
             Log().info(" Ingresa el almacen ")
 
-            clista_precio = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.campo_lista_precio)))
-            clista_precio.send_keys(Configuracion.lista_precio)
+            clista_precio_1 = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.campo_lista_precio)))
+            clista_precio_1.send_keys(Configuracion.lista_precio)
             time.sleep(2)
             Log().info("Se ingresa la lista precio")
 
-            ver = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.btn_ver1)))
-            ver.click()
+            ver_1 = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.btn_ver1)))
+            ver_1.click()
             Log().info(" Se presiona el boton 'Ver', para mostrar la informacion del reporte.")
             time.sleep(4)
         except Exception as e:
