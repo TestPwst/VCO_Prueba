@@ -2,5 +2,5 @@ projectKey=VCO_Prueba
 serverUrl=http://localhost:9000
 serverVersion=25.1.0.102122
 dashboardUrl=http://localhost:9000/dashboard?id=VCO_Prueba
-ceTaskId=09f8f884-e298-470e-9c47-5c3c2781e50c
-ceTaskUrl=http://localhost:9000/api/ce/task?id=09f8f884-e298-470e-9c47-5c3c2781e50c
+ceTaskId=c0a3fa23-e651-4a1c-a1b5-d4bde25308e9
+ceTaskUrl=http://localhost:9000/api/ce/task?id=c0a3fa23-e651-4a1c-a1b5-d4bde25308e9

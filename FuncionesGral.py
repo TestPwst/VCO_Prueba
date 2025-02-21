@@ -112,7 +112,7 @@ class funciones:
         except Exception as e:  # pragma: no cover
             Log().error(
                 f"No se pudo cambiar cerrar la sesión activa, favor de validar el error: {e}")
-        pass
+        # pass
 
         # Cambio de menu
         try:
@@ -127,8 +127,6 @@ class funciones:
                 time.sleep(1)
                 driver.execute_script("document.body.style.zoom='80%'")
                 time.sleep(1)
-                # allure.attach(driver.get_screenshot_as_png(),name="Ingreso Enterprise",
-                # attachment_type=AttachmentType.PNG)
             else:
                 Log().info(" Se esta usando el menu horizontal ")
 
@@ -218,27 +216,27 @@ class funciones:
                 Log().error(f"No se encontro el XAPTH atributo precio, validar el error: {e}")
                 # Configura el atributo
                 try:
-                    agrega_atributo = wait.until(
+                    agrega_atributo_1 = wait.until(
                         EC.presence_of_element_located((By.XPATH, Configuracion.btn_atributos)))
                     time.sleep(1)
-                    agrega_atributo.click()
+                    agrega_atributo_1.click()
                     time.sleep(1)
 
-                    atributo_precio_unitario = wait.until(
+                    atributo_precio_unitario_1 = wait.until(
                         EC.presence_of_element_located((By.XPATH, Configuracion.atributo_precio)))
                     time.sleep(1)
-                    atributo_precio_unitario.click()
+                    atributo_precio_unitario_1.click()
                     time.sleep(1)
 
-                    cerrar_atributo = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.btn_aceptar2)))
+                    cerrar_atributo_1 = wait.until(EC.presence_of_element_located((By.XPATH, Configuracion.btn_aceptar2)))
                     time.sleep(1)
-                    cerrar_atributo.click()
+                    cerrar_atributo_1.click()
                     time.sleep(1)
-                    Log().info("Se agrega el atributo precio unitario")
+                    Log().info("Se agrega el atributo precio unitario ")
 
                 except Exception as e:  # pragma: no cover
                     Log().error(f"No se logro agregar el atributo precio unitario, error {e}")
-                    pass
+                    # pass
 
         except Exception as e:  # pragma: no cover
             Log().error(f"No se encontró el atributo precio unitario, validar el error: {e}")
